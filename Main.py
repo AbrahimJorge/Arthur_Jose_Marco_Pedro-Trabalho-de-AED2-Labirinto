@@ -14,11 +14,14 @@ PRETO = (0, 0, 0)
 BRANCO = (255, 255, 255)
 AZUL = (0, 0, 255)
 VERDE = (0, 255, 0)
-                
+
 #Essa função só vai aparecer quando achar o final
 def ganhar(ganhou, game, texto_centro):
+    imagem_fundo = pygame.image.load("Telas/final.png").convert()
+    imagem_fundo = pygame.transform.scale(imagem_fundo, (LARGURA, ALTURA))
+    
     while ganhou:
-        TELA.fill((0,0,0))
+        #TELA.fill((0,0,0))
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
@@ -28,8 +31,8 @@ def ganhar(ganhou, game, texto_centro):
                 if event.key == K_r:
                     main()
                 
-        texto_centro = (LARGURA//6, ALTURA//2)
-        TELA.blit(game, texto_centro)
+        #texto_centro = (LARGURA//6, ALTURA//2)
+        TELA.blit(imagem_fundo, (0,0))
         pygame.display.update()
         
 def main():

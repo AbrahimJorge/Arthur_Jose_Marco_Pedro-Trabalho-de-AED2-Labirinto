@@ -45,6 +45,7 @@ def gerarLabirinto():
     return labirinto, fim #Retorna o labirinto e a posição final
 
 def desenharLabirinto(labirinto, estado_final):
+
     for y, linha in enumerate(labirinto):
         for x, celula in enumerate(linha):
             if celula == 1:
