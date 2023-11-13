@@ -5,18 +5,18 @@ import random
 LARGURA, ALTURA = 640, 640
 TELA = pygame.display.set_mode((LARGURA, ALTURA))
 
+TAMANHO_GRADE = 21
+TAMANHO_CELULA = LARGURA // TAMANHO_GRADE
+
 #Cores
 PRETO = (0, 0, 0)#parede
 BRANCO = (255, 255, 255)#caminho
 VERDE = (0, 255, 0)#fim
 
-TAMANHO_GRADE = 21
-TAMANHO_CELULA = LARGURA // TAMANHO_GRADE
-
+#Geração aleatória d Labirinto
 def gerarLabirinto():
     labirinto = [[1] * TAMANHO_GRADE for i in range(TAMANHO_GRADE)]
     
-    # Defina o ponto de partida, a saída e o ponto de chegada
     inicio, fim = (1, 1), (TAMANHO_GRADE - 2, TAMANHO_GRADE - 2)
     labirinto[inicio[1]][inicio[0]] = 0
     labirinto[fim[1]][fim[0]] = 2
@@ -42,8 +42,9 @@ def gerarLabirinto():
         if not encontrado:
             pilha.pop()
     
-    return labirinto, fim #Retorna o labirinto e a posição final
+    return labirinto, fim
 
+#Desenhar o Labririnto com as determinadas cores
 def desenharLabirinto(labirinto, estado_final):
 
     for y, linha in enumerate(labirinto):
@@ -55,6 +56,5 @@ def desenharLabirinto(labirinto, estado_final):
             else:
                 pygame.draw.rect(TELA, BRANCO, (x * TAMANHO_CELULA, y * TAMANHO_CELULA, TAMANHO_CELULA, TAMANHO_CELULA))
 
-    # Desenha o estado final em verde
     xf, yf = estado_final
     pygame.draw.rect(TELA, VERDE, (xf * TAMANHO_CELULA, yf * TAMANHO_CELULA, TAMANHO_CELULA, TAMANHO_CELULA))

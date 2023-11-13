@@ -16,38 +16,41 @@ AZUL = (0, 0, 255)
 VERDE = (0, 255, 0)
 
 #Essa função só vai aparecer quando achar o final
-def ganhar(ganhou, game, texto_centro):
+def ganhar(ganhou):
     imagem_fundo = pygame.image.load("Telas/final.png").convert()
     imagem_fundo = pygame.transform.scale(imagem_fundo, (LARGURA, ALTURA))
     
     while ganhou:
-        #TELA.fill((0,0,0))
+        TELA.fill((0,0,0))
         for event in pygame.event.get():
+            #Se ele apertou para sair fecha o jogo
             if event.type == QUIT:
                 pygame.quit()
                 exit()
                 
+            #Gerar um novo labirinto
             if event.type == KEYDOWN:
                 if event.key == K_r:
                     main()
-                
-        #texto_centro = (LARGURA//6, ALTURA//2)
+
         TELA.blit(imagem_fundo, (0,0))
         pygame.display.update()
         
+#Função para rodar o jogo
 def main():
     pygame.init()
-    jogo = LabirintoGame()
     movimento_automatico = False
+    jogo = LabirintoGame()
     ganhou = False
-    
     
     while True:
         for evento in pygame.event.get():
+            #Se ele apertou para sair fecha o jogo
             if evento.type == pygame.QUIT:
                 pygame.quit()
                 exit()
                 
+            #Verificação de botão para movimento
             if evento.type == pygame.KEYDOWN:
                 if evento.key == pygame.K_UP or evento.key == pygame.K_w:
                     jogo.mover_jogador(0, -1)
@@ -58,23 +61,23 @@ def main():
                 elif evento.key == pygame.K_RIGHT or evento.key == pygame.K_d:
                     jogo.mover_jogador(1, 0)
                     
+                #Botão do modo automático
                 if evento.key == pygame.K_RETURN:
                     movimento_automatico = not movimento_automatico
                     if movimento_automatico:
                         jogo.salvar_estado_atual()
-
+                        
+        #Ligar o modo automático
         if movimento_automatico:
             sleep(0.10)
             jogo.mover_jogador_auto()
             
+        #Desenhar os Sprites
         jogo.desenhar()
-
+        
+        #Verificar a vitoria
         if jogo.verificar_estado_final():
             ganhou = True
-            fonte = pygame.font.SysFont("arial", 40, True, False)
-            mensagem = 'Pressione R para gerar outro'
-            texto_na_tela = fonte.render(mensagem, True, BRANCO)
-            centro = texto_na_tela.get_rect
-            ganhar(ganhou, texto_na_tela, centro)
+            ganhar(ganhou)
         
 

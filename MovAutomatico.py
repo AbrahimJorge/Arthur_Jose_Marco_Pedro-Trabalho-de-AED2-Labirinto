@@ -1,14 +1,10 @@
-import pygame
-from pygame.locals import *
-import random
-from Jogador import Jogador
 from GerarLab import *
       
 #Função de heurística para o A*
 def heuristica(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-#Função A* sem usar a biblioteca heapq
+#Função A*
 def a_estrela(labirinto, inicio, fim):
     visitados = set()
     fila_prioridade = [(0, inicio, [])]
@@ -32,5 +28,3 @@ def a_estrela(labirinto, inicio, fim):
                 fila_prioridade.append((novo_custo + heuristica(fim, novo), novo, novo_caminho))
 
     return None
-    
-    

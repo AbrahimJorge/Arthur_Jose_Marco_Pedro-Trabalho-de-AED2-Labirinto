@@ -1,7 +1,6 @@
 import pygame
 from pygame.locals import *
 from sys import exit
-from LabirintoGame import LabirintoGame
 from Main import main
 
 #Tela do jogo e titulo
@@ -9,6 +8,7 @@ LARGURA, ALTURA = 640, 640
 TELA = pygame.display.set_mode((LARGURA, ALTURA))
 pygame.display.set_caption("Labirinto")
 
+#Tela Inicial
 def inicio():
     pygame.init()
     iniciar = True
@@ -17,12 +17,14 @@ def inicio():
     imagem_fundo = pygame.transform.scale(imagem_fundo, (LARGURA, ALTURA))
     
     while iniciar:
-        #TELA.fill((0,0,0))
+        TELA.fill((0,0,0))
         for event in pygame.event.get():
+            #Se ele apertou para sair fecha o jogo
             if event.type == QUIT:
                 pygame.quit()
                 exit()
                 
+            #Se aperta Space começa o jogo
             if event.type == KEYDOWN:
                 if event.key == K_SPACE:
                     iniciar = False     
