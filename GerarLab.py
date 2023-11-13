@@ -2,7 +2,7 @@
 Uso desse video para geração aleatória de Labirinto:
 https://youtu.be/7wnAcDsckns?si=xRrihxQBu2NFP414
 
-Uso de PDF para auxilio de criação de código de geração aleatória de Labirinto:
+Uso de PDF do trabalho de Labirinto para auxilio de criação de código de geração aleatória de Labirinto:
 file:///C:/Users/Usuario/Downloads/Op%C3%A7%C3%A3o%20de%20problema%202%20-%20Codibentinho%20e%20o%20Labirinto%20(2).pdf
 
 Uso dessa Playlist como auxilio no Pygame
