@@ -1,3 +1,11 @@
+"""
+Auxilio do PDF do trabalho para a crição do Algoritimo 
+https://colabweb.ufam.edu.br/pluginfile.php/113483/mod_resource/content/1/enunciado.pdf
+
+Auxilio do PDF de alexandre gonçalves para criação do Algoritomo
+https://www.inf.ufsc.br/~alexandre.goncalves.silva/courses/14s2/ine5633/trabalhos/t1/A%20%20%20Pathfinding%20para%20Iniciantes.pdf
+"""
+
 from GerarLab import *
       
 #Função de heurística para o A*

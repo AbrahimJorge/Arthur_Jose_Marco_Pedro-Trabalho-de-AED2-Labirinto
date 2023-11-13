@@ -1,3 +1,8 @@
+"""
+Uso dessa Playlist como auxilio no Pygame
+https://youtube.com/playlist?list=PLJ8PYFcmwFOxtJS4EZTGEPxMEo4YdbxdQ&si=6Iy9b6YWicib5u85
+"""
+
 import pygame
 from pygame.locals import *
 
